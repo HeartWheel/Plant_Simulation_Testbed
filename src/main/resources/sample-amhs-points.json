@@ -1,0 +1,380 @@
+[
+  {
+    "pointName": "MOCK_BAY_1_AREA_track_POINT_1",
+    "pointPositionX": 1000.000,
+    "pointPositionY": 300.000,
+    "pointPositionZ": 720.000,
+    "tags": "AMHS_MAIN_POINT_1 /CROSS_101 /MOCK_BAY_1_AREA_track_POINT_1"
+  },
+  {
+    "pointName": "MOCK_BAY_1_AREA_track_POINT_2",
+    "pointPositionX": 1040.000,
+    "pointPositionY": 300.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_1_AREA_track_POINT_2 /MOCK_STOCKER_A_LP1"
+  },
+  {
+    "pointName": "MOCK_BAY_1_AREA_track_POINT_3",
+    "pointPositionX": 1080.000,
+    "pointPositionY": 300.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_1_AREA_track_POINT_3 /MOCK_STOCKER_A_LP2"
+  },
+  {
+    "pointName": "MOCK_BAY_1_AREA_track_POINT_4",
+    "pointPositionX": 1120.000,
+    "pointPositionY": 300.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_1_AREA_track_POINT_4 /MOCK_STOCKER_B_LP1"
+  },
+  {
+    "pointName": "MOCK_BAY_1_AREA_track_POINT_5",
+    "pointPositionX": 1160.000,
+    "pointPositionY": 300.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_1_AREA_track_POINT_5 /MOCK_STOCKER_B_LP2"
+  },
+  {
+    "pointName": "MOCK_BAY_1_AREA_track_POINT_6",
+    "pointPositionX": 1200.000,
+    "pointPositionY": 300.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_1_AREA_track_POINT_6 /TRACK_BRANCH_101"
+  },
+  {
+    "pointName": "MOCK_BAY_2_AREA_track_POINT_1",
+    "pointPositionX": 1000.000,
+    "pointPositionY": 180.000,
+    "pointPositionZ": 720.000,
+    "tags": "AMHS_MAIN_POINT_7 /CROSS_201 /MOCK_BAY_2_AREA_track_POINT_1"
+  },
+  {
+    "pointName": "MOCK_BAY_2_AREA_track_POINT_2",
+    "pointPositionX": 1040.000,
+    "pointPositionY": 180.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_2_AREA_track_POINT_2 /MOCK_ETCH_A_LP1"
+  },
+  {
+    "pointName": "MOCK_BAY_2_AREA_track_POINT_3",
+    "pointPositionX": 1080.000,
+    "pointPositionY": 180.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_2_AREA_track_POINT_3 /MOCK_ETCH_A_LP2"
+  },
+  {
+    "pointName": "MOCK_BAY_2_AREA_track_POINT_4",
+    "pointPositionX": 1120.000,
+    "pointPositionY": 180.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_2_AREA_track_POINT_4 /MOCK_ETCH_B_LP1"
+  },
+  {
+    "pointName": "MOCK_BAY_2_AREA_track_POINT_5",
+    "pointPositionX": 1160.000,
+    "pointPositionY": 180.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_2_AREA_track_POINT_5 /MOCK_ETCH_B_LP2"
+  },
+  {
+    "pointName": "MOCK_BAY_2_AREA_track_POINT_6",
+    "pointPositionX": 1200.000,
+    "pointPositionY": 180.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_2_AREA_track_POINT_6 /TRACK_BUFFER_201"
+  },
+  {
+    "pointName": "MOCK_BAY_3_AREA_track_POINT_1",
+    "pointPositionX": 1000.000,
+    "pointPositionY": 60.000,
+    "pointPositionZ": 720.000,
+    "tags": "AMHS_MAIN_POINT_13 /CROSS_301 /MOCK_BAY_3_AREA_track_POINT_1"
+  },
+  {
+    "pointName": "MOCK_BAY_3_AREA_track_POINT_2",
+    "pointPositionX": 1040.000,
+    "pointPositionY": 60.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_3_AREA_track_POINT_2 /MOCK_CVD_A_LP1"
+  },
+  {
+    "pointName": "MOCK_BAY_3_AREA_track_POINT_3",
+    "pointPositionX": 1080.000,
+    "pointPositionY": 60.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_3_AREA_track_POINT_3 /MOCK_CVD_A_LP2"
+  },
+  {
+    "pointName": "MOCK_BAY_3_AREA_track_POINT_4",
+    "pointPositionX": 1120.000,
+    "pointPositionY": 60.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_3_AREA_track_POINT_4 /MOCK_CVD_B_LP1"
+  },
+  {
+    "pointName": "MOCK_BAY_3_AREA_track_POINT_5",
+    "pointPositionX": 1160.000,
+    "pointPositionY": 60.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_3_AREA_track_POINT_5 /MOCK_CVD_B_LP2"
+  },
+  {
+    "pointName": "MOCK_BAY_3_AREA_track_POINT_6",
+    "pointPositionX": 1200.000,
+    "pointPositionY": 60.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_3_AREA_track_POINT_6 /TRACK_MERGE_301"
+  },
+  {
+    "pointName": "MOCK_BAY_4_AREA_track_POINT_1",
+    "pointPositionX": 1000.000,
+    "pointPositionY": -60.000,
+    "pointPositionZ": 720.000,
+    "tags": "AMHS_MAIN_POINT_19 /CROSS_401 /MOCK_BAY_4_AREA_track_POINT_1"
+  },
+  {
+    "pointName": "MOCK_BAY_4_AREA_track_POINT_2",
+    "pointPositionX": 1040.000,
+    "pointPositionY": -60.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_4_AREA_track_POINT_2 /MOCK_PHOTO_A_LP1"
+  },
+  {
+    "pointName": "MOCK_BAY_4_AREA_track_POINT_3",
+    "pointPositionX": 1080.000,
+    "pointPositionY": -60.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_4_AREA_track_POINT_3 /MOCK_PHOTO_A_LP2"
+  },
+  {
+    "pointName": "MOCK_BAY_4_AREA_track_POINT_4",
+    "pointPositionX": 1120.000,
+    "pointPositionY": -60.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_4_AREA_track_POINT_4 /MOCK_PHOTO_B_LP1"
+  },
+  {
+    "pointName": "MOCK_BAY_4_AREA_track_POINT_5",
+    "pointPositionX": 1160.000,
+    "pointPositionY": -60.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_4_AREA_track_POINT_5 /MOCK_PHOTO_B_LP2"
+  },
+  {
+    "pointName": "MOCK_BAY_4_AREA_track_POINT_6",
+    "pointPositionX": 1200.000,
+    "pointPositionY": -60.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_4_AREA_track_POINT_6 /TRACK_CURVE_401"
+  },
+  {
+    "pointName": "MOCK_BAY_5_AREA_track_POINT_1",
+    "pointPositionX": 1000.000,
+    "pointPositionY": -180.000,
+    "pointPositionZ": 720.000,
+    "tags": "AMHS_MAIN_POINT_25 /CROSS_501 /MOCK_BAY_5_AREA_track_POINT_1"
+  },
+  {
+    "pointName": "MOCK_BAY_5_AREA_track_POINT_2",
+    "pointPositionX": 1040.000,
+    "pointPositionY": -180.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_5_AREA_track_POINT_2 /MOCK_CMP_A_LP1"
+  },
+  {
+    "pointName": "MOCK_BAY_5_AREA_track_POINT_3",
+    "pointPositionX": 1080.000,
+    "pointPositionY": -180.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_5_AREA_track_POINT_3 /MOCK_CMP_A_LP2"
+  },
+  {
+    "pointName": "MOCK_BAY_5_AREA_track_POINT_4",
+    "pointPositionX": 1120.000,
+    "pointPositionY": -180.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_5_AREA_track_POINT_4 /MOCK_CMP_B_LP1"
+  },
+  {
+    "pointName": "MOCK_BAY_5_AREA_track_POINT_5",
+    "pointPositionX": 1160.000,
+    "pointPositionY": -180.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_5_AREA_track_POINT_5 /MOCK_CMP_B_LP2"
+  },
+  {
+    "pointName": "MOCK_BAY_5_AREA_track_POINT_6",
+    "pointPositionX": 1200.000,
+    "pointPositionY": -180.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_5_AREA_track_POINT_6 /TRACK_BRANCH_501"
+  },
+  {
+    "pointName": "MOCK_BAY_6_AREA_track_POINT_1",
+    "pointPositionX": 1000.000,
+    "pointPositionY": -300.000,
+    "pointPositionZ": 720.000,
+    "tags": "AMHS_MAIN_POINT_31 /CROSS_601 /MOCK_BAY_6_AREA_track_POINT_1"
+  },
+  {
+    "pointName": "MOCK_BAY_6_AREA_track_POINT_2",
+    "pointPositionX": 1040.000,
+    "pointPositionY": -300.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_6_AREA_track_POINT_2 /MOCK_DIFF_A_LP1"
+  },
+  {
+    "pointName": "MOCK_BAY_6_AREA_track_POINT_3",
+    "pointPositionX": 1080.000,
+    "pointPositionY": -300.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_6_AREA_track_POINT_3 /MOCK_DIFF_A_LP2"
+  },
+  {
+    "pointName": "MOCK_BAY_6_AREA_track_POINT_4",
+    "pointPositionX": 1120.000,
+    "pointPositionY": -300.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_6_AREA_track_POINT_4 /MOCK_DIFF_B_LP1"
+  },
+  {
+    "pointName": "MOCK_BAY_6_AREA_track_POINT_5",
+    "pointPositionX": 1160.000,
+    "pointPositionY": -300.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_6_AREA_track_POINT_5 /MOCK_DIFF_B_LP2"
+  },
+  {
+    "pointName": "MOCK_BAY_6_AREA_track_POINT_6",
+    "pointPositionX": 1200.000,
+    "pointPositionY": -300.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_6_AREA_track_POINT_6 /TRACK_BUFFER_601"
+  },
+  {
+    "pointName": "MOCK_BAY_7_AREA_track_POINT_1",
+    "pointPositionX": 1000.000,
+    "pointPositionY": -420.000,
+    "pointPositionZ": 720.000,
+    "tags": "AMHS_MAIN_POINT_37 /CROSS_701 /MOCK_BAY_7_AREA_track_POINT_1"
+  },
+  {
+    "pointName": "MOCK_BAY_7_AREA_track_POINT_2",
+    "pointPositionX": 1040.000,
+    "pointPositionY": -420.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_7_AREA_track_POINT_2 /MOCK_IMPLANT_A_LP1"
+  },
+  {
+    "pointName": "MOCK_BAY_7_AREA_track_POINT_3",
+    "pointPositionX": 1080.000,
+    "pointPositionY": -420.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_7_AREA_track_POINT_3 /MOCK_IMPLANT_A_LP2"
+  },
+  {
+    "pointName": "MOCK_BAY_7_AREA_track_POINT_4",
+    "pointPositionX": 1120.000,
+    "pointPositionY": -420.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_7_AREA_track_POINT_4 /MOCK_IMPLANT_B_LP1"
+  },
+  {
+    "pointName": "MOCK_BAY_7_AREA_track_POINT_5",
+    "pointPositionX": 1160.000,
+    "pointPositionY": -420.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_7_AREA_track_POINT_5 /MOCK_IMPLANT_B_LP2"
+  },
+  {
+    "pointName": "MOCK_BAY_7_AREA_track_POINT_6",
+    "pointPositionX": 1200.000,
+    "pointPositionY": -420.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_7_AREA_track_POINT_6 /TRACK_MERGE_701"
+  },
+  {
+    "pointName": "MOCK_BAY_8_AREA_track_POINT_1",
+    "pointPositionX": 1000.000,
+    "pointPositionY": -540.000,
+    "pointPositionZ": 720.000,
+    "tags": "AMHS_MAIN_POINT_43 /CROSS_801 /MOCK_BAY_8_AREA_track_POINT_1"
+  },
+  {
+    "pointName": "MOCK_BAY_8_AREA_track_POINT_2",
+    "pointPositionX": 1040.000,
+    "pointPositionY": -540.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_8_AREA_track_POINT_2 /MOCK_METROLOGY_A_LP1"
+  },
+  {
+    "pointName": "MOCK_BAY_8_AREA_track_POINT_3",
+    "pointPositionX": 1080.000,
+    "pointPositionY": -540.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_8_AREA_track_POINT_3 /MOCK_METROLOGY_A_LP2"
+  },
+  {
+    "pointName": "MOCK_BAY_8_AREA_track_POINT_4",
+    "pointPositionX": 1120.000,
+    "pointPositionY": -540.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_8_AREA_track_POINT_4 /MOCK_METROLOGY_B_LP1"
+  },
+  {
+    "pointName": "MOCK_BAY_8_AREA_track_POINT_5",
+    "pointPositionX": 1160.000,
+    "pointPositionY": -540.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_8_AREA_track_POINT_5 /MOCK_METROLOGY_B_LP2"
+  },
+  {
+    "pointName": "MOCK_BAY_8_AREA_track_POINT_6",
+    "pointPositionX": 1200.000,
+    "pointPositionY": -540.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_BAY_8_AREA_track_POINT_6 /TRACK_CURVE_801"
+  },
+  {
+    "pointName": "MOCK_INTERBAY_track_POINT_1",
+    "pointPositionX": 1300.000,
+    "pointPositionY": 360.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_INTERBAY_track_POINT_1 /TRANSFER_MAIN_A"
+  },
+  {
+    "pointName": "MOCK_INTERBAY_track_POINT_2",
+    "pointPositionX": 1340.000,
+    "pointPositionY": 240.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_INTERBAY_track_POINT_2 /TRANSFER_MAIN_B"
+  },
+  {
+    "pointName": "MOCK_INTERBAY_track_POINT_3",
+    "pointPositionX": 1380.000,
+    "pointPositionY": 120.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_INTERBAY_track_POINT_3 /SERVICE_BYPASS_NORTH"
+  },
+  {
+    "pointName": "MOCK_INTERBAY_track_POINT_4",
+    "pointPositionX": 1420.000,
+    "pointPositionY": 0.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_INTERBAY_track_POINT_4 /SERVICE_BYPASS_SOUTH"
+  },
+  {
+    "pointName": "MOCK_INTERBAY_track_POINT_5",
+    "pointPositionX": 1460.000,
+    "pointPositionY": -120.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_INTERBAY_track_POINT_5 /TRACK_MAINTENANCE_LOOP"
+  },
+  {
+    "pointName": "MOCK_INTERBAY_track_POINT_6",
+    "pointPositionX": 1500.000,
+    "pointPositionY": -240.000,
+    "pointPositionZ": 720.000,
+    "tags": "MOCK_INTERBAY_track_POINT_6 /TRACK_ESCAPE_ROUTE"
+  }
+]

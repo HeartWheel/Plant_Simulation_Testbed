@@ -34,3 +34,11 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+
+tasks.jar {
+    enabled = false
+}
+
+tasks.bootJar {
+    archiveFileName = "plant-simulation-testbed-${project.version}.jar"
+}

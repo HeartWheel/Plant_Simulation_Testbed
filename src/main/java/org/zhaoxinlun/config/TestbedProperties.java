@@ -3,6 +3,8 @@ package org.zhaoxinlun.config;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+import java.time.Duration;
+
 @Data
 @ConfigurationProperties(prefix = "testbed")
 public class TestbedProperties {
@@ -14,6 +16,8 @@ public class TestbedProperties {
     @Data
     public static class Amhs {
         private String relayUrl;
+        private Duration connectTimeout = Duration.ofSeconds(2);
+        private Duration readTimeout = Duration.ofSeconds(5);
     }
 
     @Data

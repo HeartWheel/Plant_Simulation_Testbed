@@ -18,6 +18,14 @@ public class TransferJobRegistry {
     }
 
     public Optional<TransferJob> updateStatus(String jobId, String status) {
+        return updateStatus(jobId, status, true);
+    }
+
+    public Optional<TransferJob> updateStatusSilently(String jobId, String status) {
+        return updateStatus(jobId, status, false);
+    }
+
+    private Optional<TransferJob> updateStatus(String jobId, String status, boolean logStatusUpdate) {
         TransferJob transferJob = transferJobs.get(jobId);
         if (transferJob == null) {
             log.warn("Received status update for unknown transfer job. jobId={}, status={}", jobId, status);
@@ -25,7 +33,9 @@ public class TransferJobRegistry {
         }
 
         transferJob.setStatus(status);
-        log.info("Transfer job status updated. jobId={}, status={}", jobId, status);
+        if (logStatusUpdate) {
+            log.info("Transfer job status updated. jobId={}, status={}", jobId, status);
+        }
         return Optional.of(transferJob);
     }
 

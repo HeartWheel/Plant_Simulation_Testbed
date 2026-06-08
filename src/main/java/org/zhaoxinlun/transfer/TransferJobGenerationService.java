@@ -5,8 +5,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestClient;
+import org.springframework.web.client.RestClientResponseException;
 import org.zhaoxinlun.config.TestbedProperties;
 import org.zhaoxinlun.point.AmhsPointPool;
 
@@ -52,11 +55,12 @@ public class TransferJobGenerationService {
             throw new IllegalStateException("Transfer job generation rate must be greater than 0.");
         }
 
-        restClient = restClientBuilder.build();
+        restClient = createRestClient();
         running = true;
 
-        log.info("Starting transfer job generator. ratePerMinute={}, meanInterArrivalMillis={}, relayUrl={}",
-                ratePerMinute, Math.round(60_000.0 / ratePerMinute), properties.getAmhs().getRelayUrl());
+        log.info("Starting transfer job generator. ratePerMinute={}, meanInterArrivalMillis={}, relayUrl={}, connectTimeout={}, readTimeout={}",
+                ratePerMinute, Math.round(60_000.0 / ratePerMinute), properties.getAmhs().getRelayUrl(),
+                properties.getAmhs().getConnectTimeout(), properties.getAmhs().getReadTimeout());
 
         scheduleNextGeneration();
     }
@@ -110,6 +114,16 @@ public class TransferJobGenerationService {
         return Duration.ofMillis(delayMillis);
     }
 
+    private RestClient createRestClient() {
+        SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
+        requestFactory.setConnectTimeout(properties.getAmhs().getConnectTimeout());
+        requestFactory.setReadTimeout(properties.getAmhs().getReadTimeout());
+
+        return restClientBuilder
+                .requestFactory(requestFactory)
+                .build();
+    }
+
     private void sendToAmhs(TransferJob transferJob) {
         TransferJobRelayRequest request = new TransferJobRelayRequest(
                 TRANSFER_JOB_ENQUEUE_ACTION,
@@ -127,14 +141,35 @@ public class TransferJobGenerationService {
                     .toEntity(String.class);
             long latencyMillis = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startNanos);
 
-            transferJobRegistry.updateStatus(transferJob.getJobId(), STATUS_SUBMITTED);
+            transferJobRegistry.updateStatusSilently(transferJob.getJobId(), STATUS_SUBMITTED);
             log.info("Submitted transfer job to AMHS. jobId={}, httpStatus={}, latencyMillis={}, responseBody={}",
                     transferJob.getJobId(), response.getStatusCode().value(), latencyMillis, response.getBody());
+        } catch (ResourceAccessException exception) {
+            long latencyMillis = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startNanos);
+            transferJobRegistry.updateStatusSilently(transferJob.getJobId(), STATUS_SUBMIT_FAILED);
+            log.warn("AMHS relay unavailable. jobId={}, relayUrl={}, latencyMillis={}, reason={}",
+                    transferJob.getJobId(), properties.getAmhs().getRelayUrl(), latencyMillis, mostUsefulMessage(exception));
+        } catch (RestClientResponseException exception) {
+            long latencyMillis = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startNanos);
+            transferJobRegistry.updateStatusSilently(transferJob.getJobId(), STATUS_SUBMIT_FAILED);
+            log.warn("AMHS relay rejected transfer job. jobId={}, httpStatus={}, latencyMillis={}, responseBody={}",
+                    transferJob.getJobId(), exception.getStatusCode().value(), latencyMillis, exception.getResponseBodyAsString());
         } catch (Exception exception) {
             long latencyMillis = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startNanos);
-            transferJobRegistry.updateStatus(transferJob.getJobId(), STATUS_SUBMIT_FAILED);
+            transferJobRegistry.updateStatusSilently(transferJob.getJobId(), STATUS_SUBMIT_FAILED);
             log.warn("Failed to submit transfer job to AMHS. jobId={}, latencyMillis={}, error={}",
                     transferJob.getJobId(), latencyMillis, exception.getMessage(), exception);
         }
+    }
+
+    private String mostUsefulMessage(ResourceAccessException exception) {
+        Throwable cause = exception.getMostSpecificCause();
+        if (cause != null && cause.getMessage() != null && !cause.getMessage().isBlank()) {
+            return cause.getClass().getSimpleName() + ": " + cause.getMessage();
+        }
+        if (exception.getMessage() != null && !exception.getMessage().isBlank()) {
+            return exception.getMessage();
+        }
+        return exception.getClass().getSimpleName();
     }
 }

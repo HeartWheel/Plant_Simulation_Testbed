@@ -4,6 +4,8 @@ server:
 testbed:
   amhs:
     relay-url: ${AMHS_RELAY_URL:http://localhost:8081/relayToSocket}
+    connect-timeout: ${AMHS_CONNECT_TIMEOUT:2s}
+    read-timeout: ${AMHS_READ_TIMEOUT:5s}
 
   transfer-job:
     generation-rate-per-minute: ${TRANSFER_JOB_RATE_PER_MINUTE:45}

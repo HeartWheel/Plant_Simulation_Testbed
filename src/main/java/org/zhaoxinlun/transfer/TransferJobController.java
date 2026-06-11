@@ -23,6 +23,11 @@ public class TransferJobController {
                     request.getTransferJobId(), request.getStatus());
             return ResponseEntity.badRequest().build();
         }
+        if (!TransferJobStatuses.isKnown(request.getStatus())) {
+            log.warn("Received unknown transfer job status update. transferJobId={}, status={}",
+                    request.getTransferJobId(), request.getStatus());
+            return ResponseEntity.badRequest().build();
+        }
 
         return transferJobRegistry.updateStatus(request.getTransferJobId(), request.getStatus())
                 .map(ResponseEntity::ok)

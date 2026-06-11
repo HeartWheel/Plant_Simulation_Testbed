@@ -29,9 +29,6 @@ import java.util.random.RandomGenerator;
 public class TransferJobGenerationService {
 
     private static final String TRANSFER_JOB_ENQUEUE_ACTION = "transferJobEnqueue";
-    private static final String STATUS_GENERATED = "GENERATED";
-    private static final String STATUS_SUBMITTED = "SUBMITTED";
-    private static final String STATUS_SUBMIT_FAILED = "SUBMIT_FAILED";
 
     private final TestbedProperties properties;
     private final AmhsPointPool amhsPointPool;
@@ -103,7 +100,7 @@ public class TransferJobGenerationService {
             destination = amhsPointPool.randomLoadPortAlias(random);
         }
 
-        return new TransferJob(UUID.randomUUID().toString(), source, destination, STATUS_GENERATED);
+        return new TransferJob(UUID.randomUUID().toString(), source, destination, TransferJobStatuses.GENERATED);
     }
 
     private Duration nextInterArrivalDelay(RandomGenerator random) {
@@ -134,32 +131,55 @@ public class TransferJobGenerationService {
 
         long startNanos = System.nanoTime();
         try {
-            ResponseEntity<String> response = restClient.post()
+            ResponseEntity<TransferJobStatusUpdateRequest> response = restClient.post()
                     .uri(properties.getAmhs().getRelayUrl())
                     .body(request)
                     .retrieve()
-                    .toEntity(String.class);
+                    .toEntity(TransferJobStatusUpdateRequest.class);
             long latencyMillis = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startNanos);
 
-            transferJobRegistry.updateStatusSilently(transferJob.getJobId(), STATUS_SUBMITTED);
-            log.info("Submitted transfer job to AMHS. jobId={}, httpStatus={}, latencyMillis={}, responseBody={}",
+            applyAmhsStatusResponse(transferJob, response.getBody());
+            log.info("AMHS relay accepted transfer job. jobId={}, httpStatus={}, latencyMillis={}, responseBody={}",
                     transferJob.getJobId(), response.getStatusCode().value(), latencyMillis, response.getBody());
         } catch (ResourceAccessException exception) {
             long latencyMillis = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startNanos);
-            transferJobRegistry.updateStatusSilently(transferJob.getJobId(), STATUS_SUBMIT_FAILED);
+            transferJobRegistry.remove(transferJob.getJobId());
             log.warn("AMHS relay unavailable. jobId={}, relayUrl={}, latencyMillis={}, reason={}",
                     transferJob.getJobId(), properties.getAmhs().getRelayUrl(), latencyMillis, mostUsefulMessage(exception));
         } catch (RestClientResponseException exception) {
             long latencyMillis = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startNanos);
-            transferJobRegistry.updateStatusSilently(transferJob.getJobId(), STATUS_SUBMIT_FAILED);
+            transferJobRegistry.remove(transferJob.getJobId());
             log.warn("AMHS relay rejected transfer job. jobId={}, httpStatus={}, latencyMillis={}, responseBody={}",
                     transferJob.getJobId(), exception.getStatusCode().value(), latencyMillis, exception.getResponseBodyAsString());
         } catch (Exception exception) {
             long latencyMillis = TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startNanos);
-            transferJobRegistry.updateStatusSilently(transferJob.getJobId(), STATUS_SUBMIT_FAILED);
+            transferJobRegistry.remove(transferJob.getJobId());
             log.warn("Failed to submit transfer job to AMHS. jobId={}, latencyMillis={}, error={}",
                     transferJob.getJobId(), latencyMillis, exception.getMessage(), exception);
         }
+    }
+
+    private void applyAmhsStatusResponse(TransferJob transferJob, TransferJobStatusUpdateRequest statusUpdate) {
+        if (statusUpdate == null) {
+            log.warn("AMHS relay returned an empty status body. jobId={}", transferJob.getJobId());
+            return;
+        }
+        if (!transferJob.getJobId().equals(statusUpdate.getTransferJobId())) {
+            log.warn("AMHS relay returned mismatched transfer job status. expectedJobId={}, actualJobId={}, status={}",
+                    transferJob.getJobId(), statusUpdate.getTransferJobId(), statusUpdate.getStatus());
+            return;
+        }
+        if (statusUpdate.getStatus() == null || statusUpdate.getStatus().isBlank()) {
+            log.warn("AMHS relay returned blank transfer job status. jobId={}", transferJob.getJobId());
+            return;
+        }
+        if (!TransferJobStatuses.isKnown(statusUpdate.getStatus())) {
+            log.warn("AMHS relay returned unknown transfer job status. jobId={}, status={}",
+                    transferJob.getJobId(), statusUpdate.getStatus());
+            return;
+        }
+
+        transferJobRegistry.updateStatusSilently(statusUpdate.getTransferJobId(), statusUpdate.getStatus());
     }
 
     private String mostUsefulMessage(ResourceAccessException exception) {

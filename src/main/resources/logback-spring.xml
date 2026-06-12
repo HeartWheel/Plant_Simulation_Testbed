@@ -6,7 +6,7 @@
               value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{48}:%line - %msg%n"/>
 
     <springProfile name="prod">
-        <property name="LOG_DIR" value="${LOG_DIR:-/data/log}"/>
+        <property name="LOG_DIR" value="${LOG_DIR:-/data/logs}"/>
     </springProfile>
 
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">

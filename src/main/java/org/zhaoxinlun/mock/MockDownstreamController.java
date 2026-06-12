@@ -22,7 +22,7 @@ public class MockDownstreamController {
         return new MockE84Response(true, "OK");
     }
 
-    @PostMapping("/location")
+    @PostMapping("/foup/location")
     public boolean updateCarrierLocation(@RequestBody CarrierLocationRequest request) {
         log.info("Mock carrier location API called. carrierId={}, location={}, requestBody={}",
                 request.getCarrierId(), request.getLocation(), request);

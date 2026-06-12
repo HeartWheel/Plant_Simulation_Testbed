@@ -35,6 +35,10 @@ tasks.test {
     useJUnitPlatform()
 }
 
+tasks.withType<org.gradle.api.tasks.compile.JavaCompile>().configureEach {
+    options.compilerArgs.add("-parameters")
+}
+
 tasks.jar {
     enabled = false
 }

@@ -13,9 +13,9 @@ public class MockDownstreamController {
 
     @PostMapping("/mock-e84/{toolId}/{portId}")
     public MockE84Response mockE84(
-            @PathVariable String toolId,
-            @PathVariable Integer portId,
-            @RequestParam(name = "operation") String operation,
+            @PathVariable("toolId") String toolId,
+            @PathVariable("portId") Integer portId,
+            @RequestParam("operation") String operation,
             @RequestBody MockE84Request request
     ) {
         log.info("Mock E84 API called. toolId={}, portId={}, operation={}, transferJobId={}",

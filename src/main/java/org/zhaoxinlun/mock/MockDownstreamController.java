@@ -11,14 +11,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MockDownstreamController {
 
-    @PostMapping("/mock-e84/{portId}")
+    @PostMapping("/mock-e84/{toolId}/{portId}")
     public MockE84Response mockE84(
+            @PathVariable String toolId,
             @PathVariable Integer portId,
             @RequestParam(name = "operation") String operation,
             @RequestBody MockE84Request request
     ) {
-        log.info("Mock E84 API called. portId={}, operation={}, transferJobId={}",
-                portId, operation, request.getTransferJobId());
+        log.info("Mock E84 API called. toolId={}, portId={}, operation={}, transferJobId={}",
+                toolId, portId, operation, request.getTransferJobId());
         return new MockE84Response(true, "OK");
     }
 

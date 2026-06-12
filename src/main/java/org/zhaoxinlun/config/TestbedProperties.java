@@ -10,6 +10,7 @@ import java.time.Duration;
 public class TestbedProperties {
 
     private Amhs amhs = new Amhs();
+    private WebSocket webSocket = new WebSocket();
     private TransferJob transferJob = new TransferJob();
     private Points points = new Points();
 
@@ -18,6 +19,14 @@ public class TestbedProperties {
         private String relayUrl;
         private Duration connectTimeout = Duration.ofSeconds(2);
         private Duration readTimeout = Duration.ofSeconds(5);
+    }
+
+    @Data
+    public static class WebSocket {
+        private boolean enabled = true;
+        private String url = "ws://localhost:8081/ws";
+        private Duration connectTimeout = Duration.ofSeconds(5);
+        private Duration reconnectDelay = Duration.ofSeconds(5);
     }
 
     @Data

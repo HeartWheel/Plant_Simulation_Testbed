@@ -29,6 +29,23 @@
         </rollingPolicy>
     </appender>
 
+    <appender name="WEBSOCKET_ROLLING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_DIR}/${APP_NAME}-websocket.log</file>
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/${APP_NAME}-websocket.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>200MB</maxFileSize>
+            <maxHistory>14</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <logger name="AMHS_WEBSOCKET_MESSAGES" level="INFO" additivity="false">
+        <appender-ref ref="WEBSOCKET_ROLLING_FILE"/>
+    </logger>
+
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="ROLLING_FILE"/>
